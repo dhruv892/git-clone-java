@@ -32,7 +32,8 @@ public class Main {
           String hash = args[2];
           String dirName = hash.substring(0, 2);
           String fileName = hash.substring(2);
-          File blobFile = new File("./.git/" + dirName + "/" + fileName);
+          System.out.println(dirName + "/" + fileName);
+          File blobFile = new File("./.git/objects/" + dirName + "/" + fileName);
           try{
             // inflater has been used here because Git uses Zlib to compress objects. :)
             String blob = new BufferedReader(new InputStreamReader(new InflaterInputStream(new FileInputStream(blobFile)))).readLine();
